@@ -7,10 +7,10 @@ import {
 
 const R="#E30613",R2="#B8000E",R3="#FF2030",BG="#F2F3F7",W="#FFFFFF",INK="#111216",MUTED="#72737A",BORDER="#E4E5EA";
 
+const LOGO_SRC="data:image/png;base64,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";
+
 const StellaIcon=({size=40,style={}})=>(
-  <div style={{width:size,height:size,background:R,borderRadius:8,display:"flex",alignItems:"center",justifyContent:"center",...style}}>
-    <span style={{color:W,fontWeight:900,fontSize:size*0.35}}>S</span>
-  </div>
+  <img src={LOGO_SRC} alt="Stella" style={{width:size,height:size,objectFit:"contain",...style}}/>
 );
 
 const MONTHLY=[
@@ -238,7 +238,7 @@ export default function App(){
     <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:`linear-gradient(150deg,${R2} 0%,${R} 50%,${R3} 100%)`,fontFamily:"Helvetica Neue,Helvetica,Arial,sans-serif",padding:20}}>
       <div style={{background:W,borderRadius:22,padding:"44px 40px",maxWidth:408,width:"100%",boxShadow:"0 40px 100px rgba(0,0,0,0.35)",textAlign:"center"}}>
         <div style={{display:"flex",justifyContent:"center",marginBottom:24}}>
-          <StellaIcon size={62}/>
+          <StellaIcon size={80}/>
         </div>
         <div style={{fontSize:9.5,fontWeight:800,letterSpacing:"0.22em",color:"#C8C9CE",textTransform:"uppercase",marginBottom:5}}>Business Intelligence Platform</div>
         <h1 style={{margin:"0 0 6px",fontSize:26,fontWeight:900,color:INK}}>Stella Secure Access</h1>
@@ -264,7 +264,7 @@ export default function App(){
     <div style={{minHeight:"100vh",background:BG,fontFamily:"Helvetica Neue,Helvetica,Arial,sans-serif",color:INK}}>
       <div style={{background:W,height:58,borderBottom:`1px solid ${BORDER}`,display:"flex",alignItems:"center",padding:"0 20px",gap:16,boxShadow:"0 2px 10px rgba(0,0,0,0.055)",position:"sticky",top:0,zIndex:400}}>
         <div style={{display:"flex",alignItems:"center",gap:11,flexShrink:0}}>
-          <StellaIcon size={32}/>
+          <StellaIcon size={38}/>
           <div style={{borderLeft:`1px solid ${BORDER}`,paddingLeft:12}}>
             <div style={{fontSize:11,fontWeight:900,color:INK,lineHeight:1}}>KLACHTEN DASHBOARD</div>
             <div style={{fontSize:9.5,color:MUTED,fontWeight:600,textTransform:"uppercase"}}>Stella Next B.V.</div>
@@ -289,7 +289,6 @@ export default function App(){
 
       <div style={{padding:"22px 22px 80px",maxWidth:1360,margin:"0 auto"}}>
 
-        {/* OVERVIEW */}
         {tab==="overview"&&(
           <div>
             <RedCard sx={{marginBottom:22}}>
@@ -384,7 +383,6 @@ export default function App(){
           </div>
         )}
 
-        {/* ZOMERPIEK */}
         {tab==="zomer"&&(
           <div>
             <RedCard sx={{marginBottom:22}}>
@@ -487,7 +485,6 @@ export default function App(){
           </div>
         )}
 
-        {/* VEILIGHEID */}
         {tab==="safety"&&(
           <div>
             <div style={{background:`linear-gradient(135deg,#1A0003,${R2})`,borderRadius:16,padding:"22px 26px",marginBottom:22,boxShadow:"0 8px 32px rgba(0,0,0,0.25)"}}>
@@ -535,7 +532,6 @@ export default function App(){
           </div>
         )}
 
-        {/* EXPLORER */}
         {tab==="explorer"&&(
           <div>
             <div style={{background:"linear-gradient(135deg,#1B3A8A,#1B52D4)",borderRadius:16,padding:"22px 26px",marginBottom:22,boxShadow:"0 8px 32px rgba(27,82,212,0.28)"}}>
@@ -590,7 +586,6 @@ export default function App(){
           </div>
         )}
 
-        {/* TRUSTPILOT */}
         {tab==="trustpilot"&&(
           <div>
             <div style={{background:"linear-gradient(135deg,#1A1A2E,#16213E)",borderRadius:16,padding:"22px 26px",marginBottom:22,boxShadow:"0 8px 32px rgba(0,0,0,0.28)"}}>
@@ -685,7 +680,6 @@ export default function App(){
           </div>
         )}
 
-        {/* AANBEVELINGEN */}
         {tab==="advice"&&(
           <div>
             <div style={{background:"linear-gradient(135deg,#0D0D0D,#1E2432)",borderRadius:16,padding:"22px 26px",marginBottom:22,boxShadow:"0 8px 32px rgba(0,0,0,0.28)"}}>
@@ -750,7 +744,6 @@ export default function App(){
         )}
       </div>
 
-      {/* CHAT */}
       <div style={{position:"fixed",bottom:22,right:22,zIndex:600}}>
         {chatOpen&&(
           <div style={{position:"absolute",bottom:66,right:0,width:358,background:W,borderRadius:17,boxShadow:"0 20px 60px rgba(0,0,0,0.17)",border:`1px solid ${BORDER}`,overflow:"hidden"}}>
